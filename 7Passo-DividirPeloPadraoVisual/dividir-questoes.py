@@ -35,7 +35,7 @@ def converter_cor_gimp_para_rgb(gimp_r, gimp_g, gimp_b):
     b = int((gimp_b / 100) * 255)
     return (r, g, b)
 
-def encontrar_faixa_azul(imagem, cor_alvo, tolerancia=15, altura_faixa=10): # ATUALIZAR a altura da faixa
+def encontrar_faixa_azul(imagem, cor_alvo, tolerancia=15, altura_faixa=61): # ATUALIZAR a altura da faixa
     """
     Encontra posições onde há uma faixa horizontal da cor especificada
     """
@@ -94,7 +94,7 @@ def dividir_imagem_por_faixas(caminho_imagem, pasta_saida, cor_alvo):
     # Encontra as posições das faixas azuis
     posicoes_corte = encontrar_faixa_azul(imagem, cor_alvo)
     
-    if not posicoes_corte:
+    if not posicoes_corte:  
         print("Nenhuma faixa azul encontrada na imagem!")
         return
     
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     pasta_saida = "divididas_padrão" # Substitua pelo nome da pasta de saída desejada
 
     # Converte a cor do GIMP 0a100 para RGB (0a255)
-    cor_do_padrao = converter_cor_gimp_para_rgb(25.1, 75.7, 95.3) # COLOCAR O RGB CORRETO DA FAIXA QUE DIVIDE AS QUESTÕES (0a100 do GIMP)
+    cor_do_padrao = converter_cor_gimp_para_rgb(73.7,74.5,75.3) # COLOCAR O RGB CORRETO DA FAIXA QUE DIVIDE AS QUESTÕES (0a100 do GIMP)
     print(f"Cor convertida: RGB{cor_do_padrao}")
     
     # Executa a divisão
